@@ -11,7 +11,7 @@ const PORT = process.env.PORT;
 // ROUTES here
 // ROUTE: Default
 app.get("/", function (req, res) {
-    res.send("Hello Food Review")
+    res.send("Hello Food Reviewers!")
 })
 
 

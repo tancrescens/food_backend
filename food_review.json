@@ -1,0 +1,188 @@
+[
+    {
+        "_id": {
+            "$oid": "675164d138e320a65bc4d475"
+        },
+        "name": "Brothers Ramen",
+        "latlng": [
+            1.2761402436896734,
+            103.84621509560635
+        ],
+        "reviews": [
+            {
+                "_id": {
+                    "$oid": "6751656338e320a65bc4d47a"
+                },
+                "date": {
+                    "$date": "2024-12-04T16:00:00.000Z"
+                },
+                "by": {
+                    "_id": {
+                        "$oid": "675165ff38e320a65bc4d47b"
+                    },
+                    "name": "Henry",
+                    "reviews": [
+                        "6751656338e320a65bc4d47a"
+                    ]
+                },
+                "description": "This place was fantastic."
+            },
+            {
+                "_id": {
+                    "$oid": "6751656338e320a65bc4d484"
+                },
+                "date": {
+                    "$date": "2024-12-09T12:30:00.000Z"
+                },
+                "by": {
+                    "_id": {
+                        "$oid": "675165ff38e320a65bc4d485"
+                    },
+                    "name": "Sophia",
+                    "reviews": [
+                        "6751656338e320a65bc4d484"
+                    ]
+                },
+                "description": "The broth was rich and flavorful. Highly recommend!"
+            },
+            {
+                "_id": {
+                    "$oid": "6751656338e320a65bc4d486"
+                },
+                "date": {
+                    "$date": "2024-12-10T18:00:00.000Z"
+                },
+                "by": {
+                    "_id": {
+                        "$oid": "675165ff38e320a65bc4d487"
+                    },
+                    "name": "Liam",
+                    "reviews": [
+                        "6751656338e320a65bc4d486"
+                    ]
+                },
+                "description": "Great service, but the noodles were a bit too soft for my taste."
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "675164d138e320a65bc4d476"
+        },
+        "name": "Hokkaido Ramen Santouka",
+        "latlng": [
+            1.2987284561234567,
+            103.84562145678901
+        ],
+        "reviews": [
+            {
+                "_id": {
+                    "$oid": "6751656338e320a65bc4d47c"
+                },
+                "date": {
+                    "$date": "2024-12-05T11:00:00.000Z"
+                },
+                "by": {
+                    "_id": {
+                        "$oid": "675165ff38e320a65bc4d47d"
+                    },
+                    "name": "Alice",
+                    "reviews": [
+                        "6751656338e320a65bc4d47c"
+                    ]
+                },
+                "description": "The shio ramen was delightful!"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "675164d138e320a65bc4d477"
+        },
+        "name": "Bari Uma",
+        "latlng": [
+            1.3012458745632134,
+            103.85678904561234
+        ],
+        "reviews": [
+            {
+                "_id": {
+                    "$oid": "6751656338e320a65bc4d47e"
+                },
+                "date": {
+                    "$date": "2024-12-06T14:00:00.000Z"
+                },
+                "by": {
+                    "_id": {
+                        "$oid": "675165ff38e320a65bc4d47f"
+                    },
+                    "name": "Jake",
+                    "reviews": [
+                        "6751656338e320a65bc4d47e"
+                    ]
+                },
+                "description": "Best pork-based ramen in the city!"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "675164d138e320a65bc4d478"
+        },
+        "name": "Genki Sushi",
+        "latlng": [
+            1.2897896321456894,
+            103.8513456123789
+        ],
+        "reviews": [
+            {
+                "_id": {
+                    "$oid": "6751656338e320a65bc4d480"
+                },
+                "date": {
+                    "$date": "2024-12-07T17:00:00.000Z"
+                },
+                "by": {
+                    "_id": {
+                        "$oid": "675165ff38e320a65bc4d481"
+                    },
+                    "name": "Sarah",
+                    "reviews": [
+                        "6751656338e320a65bc4d480"
+                    ]
+                },
+                "description": "Great sushi train experience!"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "675164d138e320a65bc4d479"
+        },
+        "name": "Stuff'd",
+        "latlng": [
+            1.3038456123789456,
+            103.86278904561234
+        ],
+        "reviews": [
+            {
+                "_id": {
+                    "$oid": "6751656338e320a65bc4d482"
+                },
+                "date": {
+                    "$date": "2024-12-08T19:00:00.000Z"
+                },
+                "by": {
+                    "_id": {
+                        "$oid": "675165ff38e320a65bc4d483"
+                    },
+                    "name": "Mike",
+                    "reviews": [
+                        "6751656338e320a65bc4d482"
+                    ]
+                },
+                "description": "Loved the kebabs and falafels!"
+            }
+        ]
+    }
+]
