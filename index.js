@@ -29,7 +29,7 @@ async function main() {
         res.send("Hello Food Reviewers!")
     });
 
-    // ROUTE: Search restaurant reviews
+    // ROUTE: Search restaurant's reviews
     app.get('/restaurant_reviews', async (req, res) => {
         try {
             const { latlng, name } = req.query;
@@ -57,7 +57,7 @@ async function main() {
         }
     });
 
-    // ROUTE: get ALL restaurant reviews
+    // ROUTE: get ALL restaurants' reviews
     app.get("/restaurant_reviews", async (req, res) => {
         try {
             const restaurant_reviews = await db.collection("restaurant_reviews").find().project({
@@ -73,7 +73,7 @@ async function main() {
         }
     });
 
-    // ROUTE: Get restaurant reviews by ID
+    // ROUTE: Get restaurant's reviews by ID
     app.get("/restaurant_reviews/:id", async (req, res) => {
         try {
             const id = req.params.id;
@@ -95,7 +95,7 @@ async function main() {
         }
     });
 
-    // ROUTE: Create restaurant review
+    // ROUTE: Create restaurant
     app.post("/restaurant", async function (req, res) {
         // parameters:
         // restaurantName, latlng[], reviews[{},{}],
@@ -108,31 +108,62 @@ async function main() {
             }
 
             // Fetch docs and check that there are no such restaurant already existing
-            const restaurantDocs = await db.collection('food_review').findOne({ name: name });
+            const restaurantDocs = await db.collection('restaurant_reviews').findOne({ name: name });
             if (restaurantDocs) {
                 return res.status(400).json({ "error": "restaurant already exists, please try a different name" });
             }
 
             const newRestaurant = {
                 name: name,
-                latlng: latlng
+                latlng: latlng,
+                reviews: []
             }
 
-            const result = await db.collection('food_review').insertOne(newRestaurant);
+            const result = await db.collection('restaurant_reviews').insertOne(newRestaurant);
 
-            res.send(201).json({
-                "message": 'Restaurant created successfully',
-                "recipeId": result.insertedId
-            })
+            res.sendStatus(201);
         }
         catch (e) {
             console.error('Error creating recipe:', e);
             res.status(500).json({ error: 'Internal server error' });
         }
-
-
     });
 
+    //     // ROUTE: Update restaurant
+    //     app.post("/restaurant", async function (req, res) {
+    //         // parameters:
+    //         // restaurantName, latlng[], reviews[{},{}],
+    //         // { _id, datetime, by{_id,name,review[], description} }
+    //         try {
+    //             const { name, latlng } = req.body;
+    //             // Simple Validation
+    //             if (!name || !latlng) {
+    //                 res.sendStatus(400).json({ "error": "One or more invalid input" })
+    //             }
+
+    //             // Fetch docs and check that there are no such restaurant already existing
+    //             const restaurantDocs = await db.collection('restaurant_reviews').findOne({ name: name });
+    //             if (restaurantDocs) {
+    //                 return res.status(400).json({ "error": "restaurant already exists, please try a different name" });
+    //             }
+
+    //             const newRestaurant = {
+    //                 name: name,
+    //                 latlng: latlng,
+    //                 reviews: []
+    //             }
+
+    //             const result = await db.collection('restaurant_reviews').insertOne(newRestaurant);
+
+    //             res.sendStatus(201);
+    //         }
+    //         catch (e) {
+    //             console.error('Error creating recipe:', e);
+    //             res.status(500).json({ error: 'Internal server error' });
+    //         }
+
+
+    //     });
 }
 main();
 
