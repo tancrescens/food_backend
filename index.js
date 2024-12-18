@@ -129,41 +129,39 @@ async function main() {
         }
     });
 
-    //     // ROUTE: Update restaurant
-    //     app.post("/restaurant", async function (req, res) {
-    //         // parameters:
-    //         // restaurantName, latlng[], reviews[{},{}],
-    //         // { _id, datetime, by{_id,name,review[], description} }
-    //         try {
-    //             const { name, latlng } = req.body;
-    //             // Simple Validation
-    //             if (!name || !latlng) {
-    //                 res.sendStatus(400).json({ "error": "One or more invalid input" })
-    //             }
+    // ROUTE: Update restaurant
+    app.put("/restaurant/:id", async function (req, res) {
+        // parameters:
+        // restaurantName, latlng[], reviews[{},{}],
+        // { _id, datetime, by{_id,name,reviews[], description} }
+        try {
+            const restaurantId = req.params.id;
+            const { name, latlng } = req.body;
 
-    //             // Fetch docs and check that there are no such restaurant already existing
-    //             const restaurantDocs = await db.collection('restaurant_reviews').findOne({ name: name });
-    //             if (restaurantDocs) {
-    //                 return res.status(400).json({ "error": "restaurant already exists, please try a different name" });
-    //             }
+            // Simple Validation
+            if (!name || !latlng) {
+                res.sendStatus(400).json({ "error": "One or more input needs to be added" })
+            }
 
-    //             const newRestaurant = {
-    //                 name: name,
-    //                 latlng: latlng,
-    //                 reviews: []
-    //             }
+            const updateRestaurant = {
+                name: name,
+                latlng: latlng,
+            }
+            // Update the recipe in the database
+            const result = await db.collection('restaurant_reviews').updateOne(
+                { _id: new ObjectId(restaurantId) },
+                { $set: updateRestaurant }
+            );
 
-    //             const result = await db.collection('restaurant_reviews').insertOne(newRestaurant);
-
-    //             res.sendStatus(201);
-    //         }
-    //         catch (e) {
-    //             console.error('Error creating recipe:', e);
-    //             res.status(500).json({ error: 'Internal server error' });
-    //         }
+            res.sendStatus(201);
+        }
+        catch (e) {
+            console.error('Error updating restaurant:', e);
+            res.status(500).json({ error: 'Internal server error' });
+        }
 
 
-    //     });
+    });
 }
 main();
 
