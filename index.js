@@ -159,9 +159,28 @@ async function main() {
             console.error('Error updating restaurant:', e);
             res.status(500).json({ error: 'Internal server error' });
         }
-
-
     });
+
+    // ROUTE: delete restaurant
+    app.delete('/restaurant/:id', async (req, res) => {
+        try {
+            const restaurantId = req.params.id;
+
+            // Attempt to delete the recipe
+            const result = await db.collection('restaurant_reviews').deleteOne({ _id: new ObjectId(restaurantId) });
+
+            if (result.deletedCount === 0) {
+                return res.status(404).json({ error: 'Restaurant not found' });
+            }
+
+            res.json({ message: 'Restaurant deleted successfully' });
+        } catch (error) {
+            console.error('Error deleting restaurant:', error);
+            res.status(500).json({ error: 'Internal server error' });
+        }
+    });
+
+
 }
 main();
 
